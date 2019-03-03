@@ -4,6 +4,7 @@ dimsum-221
 @http
 get /
 post /analytics
+get /analytics
 
 @tables
 data
