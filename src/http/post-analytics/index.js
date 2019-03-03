@@ -1,12 +1,15 @@
-// Enable secure sessions, express-style middleware, and more:
-// https://docs.begin.com/en/functions/http/
-//
-// let begin = require('@architect/functions')
+const data = require('@begin/data')
 
 exports.handler = async function http(req) {
-  console.log(req)
-  return {
-    status: 302,
-    location: '/'
-  }
+  const { domain, path } = req.body
+  const timeNow = new Date()
+  
+  await data.set({
+    table: 'pageViews',
+    domain,
+    path,
+    viewedAt: timeNow
+  })
+
+  return { status: 204 }
 }
