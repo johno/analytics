@@ -3,7 +3,6 @@ dimsum-221
 
 @http
 get /
-post /page
 
 @tables
 data
